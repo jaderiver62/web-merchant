@@ -8,14 +8,7 @@ class Product extends Model {}
 
 // set up fields and rules for Product model
 Product.init({
-    //{
-    //    product_name: 'Plain T-Shirt',
-    //    price: 14.99,
-    //    stock: 14,
-    //    category_id: 1,
-    //},
-    // define columns
-    // id
+
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -34,16 +27,20 @@ Product.init({
         }
     },
     stock: {
-
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 10,
+        validate: {
+            isNumeric: true
+        }
+    },
+    category_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'category',
+            key: 'id'
+        }
     }
-    // stock
-    // Integer
-    // Doesn 't allow null values
-    // Set a default value of 10
-    // Validates that the value is numeric
-    // category_id
-    // Integer
-    // References the category model 's id
 }, {
     sequelize,
     timestamps: false,
