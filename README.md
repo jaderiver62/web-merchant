@@ -54,6 +54,7 @@ Navigate to the folder you stored the repo in your command line - then navigate 
 Next log into mysql to create the database 'web_merchant_db'
 >
 >$ mysql -u root -p
+>
 >Enter Password: ********
 >
 
@@ -61,7 +62,9 @@ Next log into mysql to create the database 'web_merchant_db'
 
 >
 > mysql> source db/schema.sql;
+>
 > mysql> show databases;
+>
 > mysql> quit
 >
 
@@ -71,7 +74,9 @@ Next create a .env file with the following properties in the Develop directory (
 
 >
 > DB_NAME='web_merchant_db'
+>
 > DB_USER='root'
+>
 > DB_PW='YOUR_PASSWORD_HERE'
 > 
 
@@ -109,7 +114,7 @@ This should be tested using Insomnia Core.
 Once the installation and usage instructions have been followed to seed the database and to start the server - it can be tested using the endpoints on Insomnia.
 
 Please refer to the following video for a walkthrough:
-[Video Link](my link)
+[Video Link](http://mylink.com)
 ---------------------------------------
 
 Written using:
