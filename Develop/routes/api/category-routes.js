@@ -7,7 +7,9 @@ router.get('/', (req, res) => {
     // find all categories
     Category.findAll({
             include: [Product]
-        }).then(dbCategory => { res.json(dbCategory) })
+        }).then(dbCategory => {
+            res.json(dbCategory)
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -20,8 +22,9 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     // find one category by its `id` value
     Category.findOne({
+            where: { id: req.params.id },
             include: [Product]
-        }).then(dbCategory => { res.json(dbCategory) })
+        }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -33,11 +36,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     // create a new category
     Category.create(req.body)
-        .then(dbCategory => { res.json(dbCategory) })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+        .then(dbCategory => res.json(dbCategory))
 
 });
 
@@ -45,9 +44,9 @@ router.put('/:id', (req, res) => {
     // update a category by its `id` value
     Category.update(req.body, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
-        }).then(dbCategory => { res.json(dbCategory) })
+        }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -61,7 +60,7 @@ router.delete('/:id', (req, res) => {
             where: {
                 id: req.body.id
             }
-        }).then(dbCategory => { res.json(dbCategory) })
+        }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

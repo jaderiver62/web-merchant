@@ -6,7 +6,10 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
     // find all tags
     Tag.findAll({
-            include: [Product]
+            include: [{
+                model: Product,
+                through: ProductTag
+            }]
         }).then(tagData => {
             res.json(tagData);
         })
@@ -20,14 +23,17 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     // find a single tag by its `id`
     Tag.findOne({
-            include: [Product],
+            include: [{
+                model: Product,
+                through: ProductTag
+            }],
             where: {
                 id: req.params.id
             }
         }).then(tagData => { res.json(tagData); })
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
+            res.status(404).json(err);
         });
     // be sure to include its associated Product data
 });
@@ -38,7 +44,7 @@ router.post('/', (req, res) => {
         res.json(tagData);
     }).catch(err => {
         console.log(err);
-        res.status(500).json(err);
+        res.status(404).json(err);
     });
 });
 
@@ -51,7 +57,7 @@ router.put('/:id', (req, res) => {
         }).then(tagData => { res.json(tagData); })
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
+            res.status(404).json(err);
         });
 });
 
@@ -62,7 +68,7 @@ router.delete('/:id', (req, res) => {
         }).then(tagData => { res.json(tagData); })
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
+            res.status(404).json(err);
         });
 });
 

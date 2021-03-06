@@ -8,8 +8,13 @@ router.get('/', (req, res) => {
     // find all products
 
     Product.findAll({
-            include: [Category, Tag]
-        }).then(dbProduct => { res.json(dbProduct) })
+            include: [Category,
+                {
+                    model: Tag,
+                    through: ProductTag
+                }
+            ]
+        }).then(dbProduct => res.json(dbProduct))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -20,7 +25,12 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     // find a single product by its `id`
     Product.findOne({
-            include: [Category, Tag],
+            include: [Category,
+                {
+                    model: Tag,
+                    through: ProductTag
+                }
+            ],
             where: {
                 id: req.params.id
             }
@@ -87,7 +97,9 @@ router.put('/:id', (req, res) => {
         .then((product) => {
             // find all associated tags from ProductTag
             if (product)
-                return ProductTag.findAll({ where: { product_id: req.params.id } });
+                return ProductTag.findAll({
+                    where: { product_id: req.params.id }
+                });
         })
         .then((productTags) => {
             // get list of current tag_ids
