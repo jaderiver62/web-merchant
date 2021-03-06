@@ -25,7 +25,7 @@ Project Link:
 * [License](#license)
 * [Testing](#testing)
 * [Questions](#questions)
-* [Contributions](#contributions)
+
 ---------------------------------------
 
 
@@ -104,8 +104,12 @@ If this is working correctly you should see a response such as this image:
 ---------------------------------------
 
 ## Testing
-testing information/video
+This should be tested using Insomnia Core.
+![Insomnia testing](./assets/images/InsomniaExample.png)
+Once the installation and usage instructions have been followed to seed the database and to start the server - it can be tested using the endpoints on Insomnia.
 
+Please refer to the following video for a walkthrough:
+[Video Link](my link)
 ---------------------------------------
 
 Written using:
@@ -118,11 +122,6 @@ Written using:
 * Node
    
 
----------------------------------------
-
-## Contributions
-
-                     
 
 ---------------------------------------
 
