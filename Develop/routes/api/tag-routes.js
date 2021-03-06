@@ -10,9 +10,7 @@ router.get('/', (req, res) => {
                 model: Product,
                 through: ProductTag
             }]
-        }).then(tagData => {
-            res.json(tagData);
-        })
+        }).then(tagData => res.json(tagData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -30,7 +28,7 @@ router.get('/:id', (req, res) => {
             where: {
                 id: req.params.id
             }
-        }).then(tagData => { res.json(tagData); })
+        }).then(tagData => res.json(tagData))
         .catch(err => {
             console.log(err);
             res.status(404).json(err);
@@ -40,12 +38,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     // create a new tag
-    Tag.create(req.body).then(tagData => {
-        res.json(tagData);
-    }).catch(err => {
-        console.log(err);
-        res.status(404).json(err);
-    });
+    Tag.create(req.body).then(tagData => res.json(tagData))
+        .catch(err => {
+            console.log(err);
+            res.status(404).json(err);
+        });
 });
 
 router.put('/:id', (req, res) => {
