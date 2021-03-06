@@ -141,7 +141,7 @@ router.delete('/:id', (req, res) => {
         }).then(productData => res.json(productData))
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
+            res.status(404).json(err);
         });
 });
 
