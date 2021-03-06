@@ -5,12 +5,16 @@
 ---------------------------------------
 
 ## Description
-app information
+Web Merchant is an online e-commerce site that holds data about products.  
+
+Each product is a part of category and can have as many tags as needed.  
+
+The site stores information in a database that can be accessed through the API endpoints to Create, Read, Update and Delete information.
 
 ---------------------------------------
 
 Project Link: 
-[web-merchant on GitHub](https://github.com/jaderiver62/web-merchant)
+[web-merchant GitHub link](https://github.com/jaderiver62/web-merchant)
 
 ---------------------------------------
 
@@ -29,16 +33,73 @@ Project Link:
 ---------------------------------------
 
 ## Installation
-installation info
+This project runs using Node, npm and mysql.
+
+First clone the repo into your desired folder.
+
+Navigate to the folder you stored the repo in your command line - then navigate to the Develop directory and follow the following steps:
+
+>
+>$ npm install -y 
+>
 
 ---------------------------------------
 
+>
+>$ npm install mysql2 express sequelize dotenv
+>
+
+---------------------------------------
+
+Next log into mysql to create the database 'web_merchant_db'
+>
+>$ mysql -u root -p
+>Enter Password: ********
+>
+
+---------------------------------------
+
+>
+> mysql> source db/schema.sql;
+> mysql> show databases;
+> mysql> quit
+>
+
+---------------------------------------
+
+Next create a .env file with the following properties in the Develop directory (alter as needed):
+
+>
+> DB_NAME='web_merchant_db'
+> DB_USER='root'
+> DB_PW='YOUR_PASSWORD_HERE'
+> 
+
+---------------------------------------
+
+Save the .env file.  
+
 ## Usage
 
+To use Web Merchant - navigate to the command line in the Develop directory and run the following commands:
 
-instructions and examples
+>
+> npm run seed
+>
 
-![Project Usage Image](image/url)
+You should see the following image to confirm it has seeded correctly:
+
+
+![Successful Seed Image](./assets/images/WebMerchantSeed.png)
+
+Now to start the server:
+
+>
+> npm start
+>
+
+If this is working correctly you should see a response such as this image:
+![Successful Server Start](./assets/images/ServerResponse.png)
 
 ---------------------------------------
 
