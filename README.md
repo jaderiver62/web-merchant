@@ -26,9 +26,6 @@ Project Link:
 * [Testing](#testing)
 * [Questions](#questions)
 
----------------------------------------
-
-
 
 ---------------------------------------
 
@@ -102,6 +99,7 @@ Now to start the server:
 >
 > npm start
 >
+---------------------------------------
 
 If this is working correctly you should see a response such as this image:
 ![Successful Server Start](./assets/images/ServerResponse.png)
