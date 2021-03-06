@@ -9,15 +9,32 @@ router.get('/', (req, res) => {
 
     Product.findAll({
             include: [Category, Tag]
-        }) // be sure to include its associated Category and Tag data
+        }).then(dbProduct => { res.json(dbProduct) })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        }); // be sure to include its associated Category and Tag data
 });
 
 // get one product
 router.get('/:id', (req, res) => {
     // find a single product by its `id`
     Product.findOne({
-        include: [Category, Tag]
-    }).then(dbProduct => { res.json(dbProduct) });
+            include: [Category, Tag],
+            where: {
+                id: req.params.id
+            }
+        }).then(dbProduct => {
+            if (!dbProduct) {
+                res.status(404).json({ message: 'No product found with this id' });
+                return;
+            }
+            res.json(dbProduct)
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
     // be sure to include its associated Category and Tag data
 });
 
@@ -69,7 +86,8 @@ router.put('/:id', (req, res) => {
         })
         .then((product) => {
             // find all associated tags from ProductTag
-            return ProductTag.findAll({ where: { product_id: req.params.id } });
+            if (product)
+                return ProductTag.findAll({ where: { product_id: req.params.id } });
         })
         .then((productTags) => {
             // get list of current tag_ids
@@ -96,18 +114,23 @@ router.put('/:id', (req, res) => {
         })
         .then((updatedProductTags) => res.json(updatedProductTags))
         .catch((err) => {
-            // console.log(err);
+            console.log(err);
             res.status(400).json(err);
         });
 });
 
+
 router.delete('/:id', (req, res) => {
     // delete one product by its `id` value
     Product.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(productData => res.json(productData));
+            where: {
+                id: req.params.id
+            }
+        }).then(productData => res.json(productData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;
