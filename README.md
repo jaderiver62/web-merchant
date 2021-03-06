@@ -88,7 +88,7 @@ To use Web Merchant - navigate to the command line in the Develop directory and 
 >
 > npm run seed
 >
-
+---------------------------------------
 You should see the following image to confirm it has seeded correctly:
 
 
