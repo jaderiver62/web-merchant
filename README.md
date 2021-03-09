@@ -125,6 +125,8 @@ Written using:
 * ES6
    
 * Node
+
+* SQL/Sequelize/Mysql
    
 
 
