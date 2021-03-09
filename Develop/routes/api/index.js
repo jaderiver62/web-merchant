@@ -8,3 +8,5 @@
   router.use('/tags', tagRoutes);
 
   module.exports = router;
+
+  // Linking the routes together and exporting them

@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-    // be sure to include its associated Product data
+    // Tag is associated to Product data
 });
 
 router.get('/:id', (req, res) => {
@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
             console.log(err);
             res.status(404).json(err);
         });
-    // be sure to include its associated Product data
+    // Tag is associated to roduct data
 });
 
 router.post('/', (req, res) => {

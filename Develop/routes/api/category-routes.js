@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             res.status(500).json(err);
         });
 
-    // be sure to include its associated Products
+    // Category is associated to Products
 
 });
 
@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
             res.status(404).json(err);
         });
 
-    // be sure to include its associated Products
+    // Category is associated to Products
 });
 
 router.post('/', (req, res) => {

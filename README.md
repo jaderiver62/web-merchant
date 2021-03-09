@@ -57,6 +57,10 @@ Next log into mysql to create the database 'web_merchant_db'
 
 ---------------------------------------
 
+Please refer to the following video for a walkthrough:
+[Video Link](https://drive.google.com/file/d/1NKRkygh8qZ2y_EjiFysacoSz2MRBghTO/view)
+
+
 >
 > mysql> source db/schema.sql;
 >
@@ -111,8 +115,6 @@ This should be tested using Insomnia Core.
 ![Insomnia testing](./assets/images/InsomniaExample.png)
 Once the installation and usage instructions have been followed to seed the database and to start the server - it can be tested using the endpoints on Insomnia.
 
-Please refer to the following video for a walkthrough:
-[Video Link](https://drive.google.com/file/d/1NKRkygh8qZ2y_EjiFysacoSz2MRBghTO/view)
 ---------------------------------------
 
 Written using:

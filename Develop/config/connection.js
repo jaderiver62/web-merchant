@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+// using dotenv to protect passwords and sesitive information
 const Sequelize = require('sequelize');
 
 const sequelize = process.env.JAWSDB_URL ?
@@ -11,5 +11,5 @@ const sequelize = process.env.JAWSDB_URL ?
             decimalNumbers: true,
         },
     });
-
+// setting up sequelize
 module.exports = sequelize;
