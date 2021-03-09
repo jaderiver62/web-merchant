@@ -112,7 +112,7 @@ This should be tested using Insomnia Core.
 Once the installation and usage instructions have been followed to seed the database and to start the server - it can be tested using the endpoints on Insomnia.
 
 Please refer to the following video for a walkthrough:
-[Video Link](http://mylink.com)
+[Video Link](https://drive.google.com/file/d/1NKRkygh8qZ2y_EjiFysacoSz2MRBghTO/view)
 ---------------------------------------
 
 Written using:
