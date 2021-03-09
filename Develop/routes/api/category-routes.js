@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
         }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
-            res.status(500).json(err);
+            res.status(404).json(err);
         });
 
     // be sure to include its associated Products
@@ -35,8 +35,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     // create a new category
-    Category.create(req.body)
-        .then(dbCategory => res.json(dbCategory))
+    Category.create(req.body).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
             res.status(404).json(err);
@@ -49,7 +48,8 @@ router.put('/:id', (req, res) => {
     Category.update(req.body, {
             where: {
                 id: req.params.id
-            }
+            },
+            include: [Product]
         }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
             console.log(err);
@@ -62,7 +62,7 @@ router.delete('/:id', (req, res) => {
     // delete a category by its `id` value
     Category.destroy({
             where: {
-                category_id: req.params.category_id
+                id: req.params.id
             }
         }).then(dbCategory => res.json(dbCategory))
         .catch(err => {
