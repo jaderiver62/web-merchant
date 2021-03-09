@@ -124,7 +124,7 @@ Written using:
    
 * ES6
    
-* Node
+* Node/npm
 
 * SQL/Sequelize/Mysql
    
